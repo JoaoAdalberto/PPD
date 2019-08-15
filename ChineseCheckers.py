@@ -20,6 +20,8 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 grey = (128, 128, 128)
+lista = [[],[]]
+listadecor = []
 highlightcolor = blue
 color = pygame.Color(255, 255, 255)
 pygame.init()
@@ -146,7 +148,8 @@ bolas = np.array(
      pygame.draw.circle(playSurface, red, (317, 293), 10),
      pygame.draw.circle(playSurface, red, (339, 293), 10),
      pygame.draw.circle(playSurface, red, (361, 293), 10),
-  ])
+     pygame.draw.circle(playSurface, grey, (383, 292), 10)
+     ])
 
 
 def desenhaTabuleiro():
@@ -157,32 +160,81 @@ print(bolas[0])
 
 print(type(len(bolas)))
 
+
+def getcolor():
+    pass
+
+
+getcolor()
+
+
 def acertou(mouse):
     tamanho = int(len(bolas))
     i = 0
-
-
     for i in range(0, tamanho):
-        quadrado_x = (mouse[0] - (bolas[i][0]+10))**2
+        quadrado_x = (mouse[0] - (bolas[i][0] + 10)) ** 2
         quadrado_y = (mouse[1] - (bolas[i][1] + 10)) ** 2
 
         if (math.sqrt(quadrado_x + quadrado_y) <= 10):
             # print("tu ta numa bola")
-            return True
+            cordopixel = playSurface.get_at(mouse)[:3]
+            return cordopixel
         else:
             # print("tu num ta numa bola")
             pass
     return False
 
-def pegaracor():
-    pass
+
+def pegando_se_tem_cor(mouse):
+    everde = False
+    evermelho = False
+    ebranco = False
+    if acertou(mouse) == (255, 0, 0):
+        evermelho = (255, 0, 0)
+        return evermelho
+    elif acertou(mouse) == (0, 255, 0):
+        everde = (0, 255, 0)
+        return everde
+    elif acertou(mouse) == (255, 255, 255):
+        ebranco = (255, 255, 255)
+        return ebranco
+    else:
+        return False
+
+
+def coordenada_circulo(mouse):
+    tamanho = int(len(bolas))
+    i = 0
+    lista = []
+    for i in range(0, tamanho):
+        quadrado_x = (mouse[0] - (bolas[i][0] + 10)) ** 2
+        quadrado_y = (mouse[1] - (bolas[i][1] + 10)) ** 2
+
+        if (math.sqrt(quadrado_x + quadrado_y) <= 10):
+            # print("tu ta numa bola")
+            return bolas[i]
+        else:
+            # print("tu num ta numa bola")
+            pass
+    return False
+
 
 def mudaracor():
-    pass
+    if coordenada_circulo(mouse) is not None and pegando_se_tem_cor(mouse) is not (255, 255, 255):
+        x = coordenada_circulo(mouse)[0]
+        y = coordenada_circulo(mouse)[1]
+        lista.append(x)
+        lista.append(y)
+        print(lista)
+    else:
+        pass
+    # if len(lista) == 2:
+    #     if lista[0] is not
 
-def pegarvizinhanças():
-    pass
 
+
+def pegarvizinhancas():
+    pass
 
 
 pygame.display.set_caption("Chinese Checkers!")
@@ -190,19 +242,23 @@ pygame.display.set_caption("Chinese Checkers!")
 while True:  # main game loop
 
     for event in pygame.event.get():
-        #print(pygame.mouse.get_pos())
+        # print(pygame.mouse.get_pos())
+
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
 
         elif event.type == MOUSEMOTION:
             mousex, mousey = event.pos
-        elif event.type == MOUSEBUTTONDOWN :
+        elif event.type == MOUSEBUTTONDOWN:
             mouse = event.pos
-            # print(mouse)
+            print(mudaracor())
+            print(pegando_se_tem_cor(mouse))
+            print(coordenada_circulo(mouse))
+            # print(coordenada_circulo(mouse)[0])
+
             print(acertou(mouse))
             mouseClicked = True
-
 
     pygame.display.update()
 
