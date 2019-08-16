@@ -156,6 +156,18 @@ class Tabuleiro():
                 if (a == x and b == y):
                     return circulo
 
+    # def pega_bola_na_posicao(self, x, y, jogador_atual):
+    #     for i, array in enumerate(self.bolas):
+    #         for j, circulo in enumerate(array):
+    #             if jogador_atual == 0 and circulo.get_cor == green:
+    #                 (a, b) = circulo.get_x_y()
+    #                 if (a == x and b == y):
+    #                     return circulo
+    #             elif jogador_atual == 1 and circulo.get_cor == red:
+    #                 (a, b) = circulo.get_x_y()
+    #                 if (a == x and b == y):
+    #                     return circulo
+
     def verifica_posicao_na_matriz(self, x, y):
         for i, array in enumerate(self.bolas):
             for j, circulo in enumerate(array):
@@ -170,10 +182,25 @@ class Tabuleiro():
             return False
 
     def muda_posicao_circulo(self, circulo, outro_circulo):
+
+        # vizinhos_do_primeiro = self.pega_vizinhos(circulo)
+        # for vizinho in vizinhos_do_primeiro:
+        #     if vizinho.get_cor != (255, 255, 255):
+        #         vizinhos_do_vizinhos = vizinho.get_x_y
+
         if outro_circulo.get_cor() == white:
             self.vizinhox = self.pega_vizinhos(circulo)
-            if outro_circulo in self.vizinhox:
+            if outro_circulo in self.vizinhox and (255, 255, 255):
                 pos = (circulo.get_x_y())
                 circulo.set_x_y(outro_circulo.get_x_y())
                 circulo.moveu = True
                 outro_circulo.set_x_y(pos)
+
+
+    def troca_jogador_atual(self, jogador_atual):
+        if jogador_atual == "vermelho":
+            jogador_atual = "verde"
+            return jogador_atual
+        elif jogador_atual == "verde" :
+            jogador_atual = "vermelho"
+            return jogador_atual
