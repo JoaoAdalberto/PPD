@@ -12,21 +12,25 @@ highlightcolor = blue
 
 
 class Bola():
-    def __init__(self, cor, x, y, raio=10, moveu=False):
+    def __init__(self, cor, x, y, raio=10, moveu=False, valido=True):
         self.x = x
         self.y = y
         self.raio = raio
         self.cor = cor
         self.moveu = moveu
+        self.valido = valido
 
     def get_cor(self):
         return self.cor
 
-    def get_x(self):
-        return self.x
+    def get_x_y(self):
+        return self.x, self.y
 
-    def get_y(self):
-        return self.y
+    def set_x_y(self, pos):
+        self.x, self.y = pos
 
-    def cria_bola(self, surface):
-        return pygame.draw.circle(surface, self.cor, (self.x, self.y), self.raio)
+    def muda_estado(self):
+        self.valido = True if self.valido == True else False
+
+    def cria_bola(self, playSurface):
+        return pygame.draw.circle(playSurface, self.cor, (self.x, self.y), self.raio)

@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7772e3e-490e-44ca-8820-102c721b00c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AgoraVai.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatCliente.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChineseCheckers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChineseCheckers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Estrela.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slide.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/catanimation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drawing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonttext.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sjsjs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AgoraVai.py" beforeDir="false" afterPath="$PROJECT_DIR$/AgoraVai.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolas.py" beforeDir="false" afterPath="$PROJECT_DIR$/bolas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tabuleiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabuleiro.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,8 +45,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ChatCliente">
-    <configuration name="Chat" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.AgoraVai">
+    <configuration name="AgoraVai" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PPD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,7 +58,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Chat.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AgoraVai.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -117,7 +109,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bolas" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ChineseCheckers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PPD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -129,7 +121,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bolas.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChineseCheckers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.AgoraVai" />
+        <item itemvalue="Python.tabuleiro" />
+        <item itemvalue="Python.ChineseCheckers" />
         <item itemvalue="Python.ChatCliente" />
         <item itemvalue="Python.ChatServidor" />
-        <item itemvalue="Python.Chat" />
-        <item itemvalue="Python.bolas" />
-        <item itemvalue="Python.tabuleiro" />
       </list>
     </recent_temporary>
   </component>

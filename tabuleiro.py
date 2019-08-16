@@ -9,34 +9,39 @@ blue = (0, 0, 255)
 grey = (128, 128, 128)
 
 
-class Grid():
+class Tabuleiro():
     def __init__(self):
+        self.vizinhox = []
         self.bolas = np.array([[Bola(green, 328, 46)],
                                [Bola(green, 317, 65), Bola(green, 339, 65)],
                                [Bola(green, 306, 84), Bola(green, 328, 84), Bola(green, 350, 84)],
                                [Bola(green, 295, 103), Bola(green, 317, 103), Bola(green, 339, 103),
                                 Bola(green, 361, 103)],
+                               [Bola(white, 196, 122), Bola(white, 218, 122), Bola(white, 240, 122), Bola(white, 262, 122),
+                                Bola(white, 284, 122), Bola(white, 306, 122), Bola(white, 328, 122), Bola(white, 350, 122),
+                                Bola(white, 372, 122), Bola(white, 394, 122), Bola(white, 416, 122), Bola(white, 438, 122),
+                                Bola(white, 460, 122)],
                                [Bola(white, 207, 141), Bola(white, 229, 141), Bola(white, 251, 141),
                                 Bola(white, 273, 141),
                                 Bola(white, 295, 141),
                                 Bola(white, 317, 141), Bola(white, 339, 141), Bola(white, 361, 141),
                                 Bola(white, 383, 141),
                                 Bola(white, 405, 141),
-                                Bola(white, 427, 141), Bola(white, 449, 141), Bola(white, 218, 160)],
-                               [Bola(white, 240, 160), Bola(white, 262, 160), Bola(white, 284, 160),
+                                Bola(white, 427, 141), Bola(white, 449, 141)],
+                               [Bola(white, 240, 160), Bola(white, 218, 160), Bola(white, 262, 160), Bola(white, 284, 160),
                                 Bola(white, 306, 160),
                                 Bola(white, 328, 160),
                                 Bola(white, 350, 160), Bola(white, 372, 160), Bola(white, 394, 160),
                                 Bola(white, 416, 160),
                                 Bola(white, 438, 160),
-                                Bola(white, 229, 179), Bola(white, 251, 179)],
-                               [Bola(white, 273, 179), Bola(white, 295, 179), Bola(white, 317, 179),
+                                ],
+                               [Bola(white, 273, 179), Bola(white, 229, 179), Bola(white, 251, 179), Bola(white, 295, 179), Bola(white, 317, 179),
                                 Bola(white, 339, 179),
                                 Bola(white, 361, 179),
                                 Bola(white, 383, 179), Bola(white, 405, 179), Bola(white, 427, 179)],
                                [Bola(white, 240, 198), Bola(white, 262, 198), Bola(white, 284, 198),
                                 Bola(white, 306, 198),
-                                Bola(white, 328, 198),
+                                Bola(white, 328, 198), Bola(white, 350, 198),
                                 Bola(white, 372, 198), Bola(white, 394, 198), Bola(white, 416, 198)],
                                [Bola(white, 229, 217), Bola(white, 251, 217), Bola(white, 273, 217),
                                 Bola(white, 295, 217),
@@ -79,15 +84,96 @@ class Grid():
     def verifica_dentro_do_circulo(self, x, y, a, b, r):
         return (x - a) * (x - a) + (y - b) * (y - b) < r * r
 
-    def vizinhos(self, circulo):
-        x = circulo.get_x()
-        y = circulo.get_y()
+    def pega_vizinhos(self, circulo):
+        (x, y) = circulo.get_x_y()
         print(x, y)
+        circulo_da_direita = self.pega_bola_na_posicao(x + 22, y)
+        circulo_da_esquerda = self.pega_bola_na_posicao(x - 22, y)
+        topo_circulo_esquerda = self.pega_bola_na_posicao(x - 11, y - 19)
+        topo_circulo_direita = self.pega_bola_na_posicao(x + 11, y - 19)
+        baixo_circulo_esquerda = self.pega_bola_na_posicao(x - 11, y + 19)
+        baixo_circulo_direita = self.pega_bola_na_posicao(x + 11, y + 19)
+
+        vizinhos = circulo_da_direita, circulo_da_esquerda, topo_circulo_direita, topo_circulo_esquerda, baixo_circulo_direita, baixo_circulo_esquerda
+        bolas = []
+        for vizinho in vizinhos:
+            if vizinho is not None:
+                bolas.append(vizinho)
+
+        espacos_brancos = self.vizinhos_brancos(bolas)
+
+        for w in espacos_brancos:
+            bolas.append(w)
+        if len(bolas) >= 0:
+            inimigos_vizinhanca = self.inimigos_na_vizinhanca(circulo, bolas)
+        if len(inimigos_vizinhanca) >= 0:
+            for inimigo in inimigos_vizinhanca:
+                if inimigo.moveu:
+                    espacos_brancos = self.espacos_disponiveis(inimigo)
+                    for brancos in espacos_brancos:
+                        bolas.append(brancos)
+        return bolas
+
+    def espacos_disponiveis(self, inimigo):
+        (x, y) = inimigo.get_x_y()
+        circulo_da_direita = self.pega_bola_na_posicao(x + 22, y)
+        circulo_da_esquerda = self.pega_bola_na_posicao(x - 22, y)
+        topo_circulo_esquerda = self.pega_bola_na_posicao(x - 11, y - 19)
+        topo_circulo_direita = self.pega_bola_na_posicao(x + 11, y - 19)
+        baixo_circulo_esquerda = self.pega_bola_na_posicao(x - 11, y + 19)
+        baixo_circulo_direita = self.pega_bola_na_posicao(x + 11, y + 19)
+
+        vizinhos = circulo_da_direita, circulo_da_esquerda, topo_circulo_direita, topo_circulo_esquerda, baixo_circulo_direita, baixo_circulo_esquerda
+
+        vizinhanca_filtrada = []
+        for vizinho in vizinhos:
+            if vizinho is not None:
+                vizinhanca_filtrada.append(vizinho)
+
+        espacos_brancos = self.vizinhos_brancos(vizinhanca_filtrada)
+
+        return espacos_brancos
+
+    def inimigos_na_vizinhanca(self, circulo, vizinhos):
+        inimigos = []
+        for vizinho in vizinhos:
+            if self.verifica_se_vizinho_nao_e_branco(circulo, vizinho):
+                inimigos.append(vizinho)
+        return inimigos
+
+    def vizinhos_brancos(self, vizinhos):
+        brancos = []
+        for vizinho in vizinhos:
+            if vizinho is not None:
+                if vizinho.get_cor() == white:
+                    brancos.append(vizinho)
+        return brancos
 
     def pega_bola_na_posicao(self, x, y):
         for i, array in enumerate(self.bolas):
             for j, circulo in enumerate(array):
-                a = Bola.get_x()
-                b = Bola.get_y()
+                (a, b) = circulo.get_x_y()
                 if (a == x and b == y):
                     return circulo
+
+    def verifica_posicao_na_matriz(self, x, y):
+        for i, array in enumerate(self.bolas):
+            for j, circulo in enumerate(array):
+                (a, b) = circulo.get_x_y()
+                if self.verifica_dentro_do_circulo(x, y, a, b, 10) and circulo.valido:
+                    return circulo
+
+    def verifica_se_vizinho_nao_e_branco(self, circulo: Bola, vizinho_circulo: Bola):
+        if vizinho_circulo is not None and vizinho_circulo.get_cor() != white:
+            return True
+        else:
+            return False
+
+    def muda_posicao_circulo(self, circulo, outro_circulo):
+        if outro_circulo.get_cor() == white:
+            self.vizinhox = self.pega_vizinhos(circulo)
+            if outro_circulo in self.vizinhox:
+                pos = (circulo.get_x_y())
+                circulo.set_x_y(outro_circulo.get_x_y())
+                circulo.moveu = True
+                outro_circulo.set_x_y(pos)
