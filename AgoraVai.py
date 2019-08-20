@@ -5,6 +5,7 @@ import math
 import random
 import numpy as np
 from tabuleiro import Tabuleiro
+from Botao import Botao
 from bolas import Bola
 from pygame.locals import *
 from tkinter import *
@@ -41,12 +42,30 @@ jogou_verde = 0
 jogou_vermelho = 0
 jogou = 0
 
+botao_passar_turno = Botao("Passar a vez", (0, 0, 0), blue)
+botao_passar_turno.desenha_botao(playSurface, 150, 450, 200, 50)
+
+botao_desistir = Botao("Desistir", (255, 51, 255), blue)
+botao_desistir.desenha_botao(playSurface, 450, 450, 200, 50)
+
+
+
+
+
+def mostra_jogador_atual(jogador_atual):
+    while True:
+        if jogador_atual == "verde":
+            pygame.draw.circle(playSurface, green, (100,100), 20)
+            break
+        elif jogador_atual == "vermelho":
+            pygame.draw.circle(playSurface, red, (100, 100), 20)
+            break
+pygame.draw.circle(playSurface, green, (100, 100), 20)
+
 
 def troca_jogador_atual(jogador_atual):
-
     if jogador_atual == jogador_vermelho:
         jogador_atual = jogador_verde
-
     elif jogador_atual == jogador_verde:
         jogador_atual = jogador_vermelho
     return jogador_atual
@@ -54,10 +73,12 @@ def troca_jogador_atual(jogador_atual):
 
 done = False
 while not done:
+    mostra_jogador_atual(jogador_atual)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
         if event.type == pygame.MOUSEBUTTONDOWN:
+
             if event.button == MOUSE_LEFT:
                 if len(circulos) < 2:
                     position_mouse = pygame.mouse.get_pos()
@@ -67,25 +88,35 @@ while not done:
                     if circulo is not None and jogador_atual == jogador_verde:
                         if circulo.get_cor() == (0, 255, 0):
                             circulos=[]
-                            vizinhos=tabuleiro.pega_vizinhos(circulo)
+                            # vizinhos=tabuleiro.pega_vizinhos(circulo)
                             circulos.append(circulo)
-                        if circulo.get_cor() == white and len(circulos) > 0 and circulo in vizinhos:
+                        if circulo.get_cor() == white and len(circulos) > 0 :
                             circulos.append(circulo)
                     elif circulo is not None and jogador_atual == jogador_vermelho:
                         if circulo.get_cor() == (255, 0, 0):
-                            vizinhos = tabuleiro.pega_vizinhos(circulo)
+                            #vizinhos = tabuleiro.pega_vizinhos(circulo)
                             circulos.append(circulo)
-                        if circulo.get_cor() == white and len(circulos) > 0 and circulo in vizinhos:
+                        if circulo.get_cor() == white and len(circulos) > 0:
 
                             circulos.append(circulo)
                 if len(circulos) == 2:
                     tabuleiro.muda_posicao_circulo(circulos[0], circulos[1])
-                    print("passou por aqui")
                     print(jogador_atual)
-                    jogador_atual = troca_jogador_atual(jogador_atual)
+                    if jogador_atual == jogador_vermelho:
+                        jogador_atual = jogador_verde
+                    elif jogador_atual == jogador_verde:
+                        jogador_atual = jogador_vermelho
+                    while True:
+                        if jogador_atual == "verde":
+                            pygame.draw.circle(playSurface, green, (100, 100), 20)
+                            break
+                        elif jogador_atual == "vermelho":
+                            pygame.draw.circle(playSurface, red, (100, 100), 20)
+                            break
                     print(jogador_atual)
                     circulos = []
                 tabuleiro.desenha_estrela(playSurface)
+                tabuleiro.checa_se_tem_ganhador()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == MOUSE_RIGHT:

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7772e3e-490e-44ca-8820-102c721b00c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Botao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AgoraVai.py" beforeDir="false" afterPath="$PROJECT_DIR$/AgoraVai.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatCliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChatCliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatServidor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServidor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bolas.py" beforeDir="false" afterPath="$PROJECT_DIR$/bolas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tabuleiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabuleiro.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +33,8 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/logica terminada 14_08" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -154,9 +159,9 @@
       <list>
         <item itemvalue="Python.AgoraVai" />
         <item itemvalue="Python.tabuleiro" />
-        <item itemvalue="Python.ChineseCheckers" />
-        <item itemvalue="Python.ChatCliente" />
         <item itemvalue="Python.ChatServidor" />
+        <item itemvalue="Python.ChatCliente" />
+        <item itemvalue="Python.ChineseCheckers" />
       </list>
     </recent_temporary>
   </component>

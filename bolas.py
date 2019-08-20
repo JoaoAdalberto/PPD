@@ -23,6 +23,9 @@ class Bola():
     def get_cor(self):
         return self.cor
 
+    def set_cor(self, cor):
+        self.cor = cor
+
     def get_x_y(self):
         return self.x, self.y
 
