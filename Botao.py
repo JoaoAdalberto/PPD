@@ -17,7 +17,7 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 grey = (128, 128, 128)
-
+pygame.init()
 
 class Botao():
     def __init__(self, texto, cor, cor_do_texto):
@@ -36,3 +36,4 @@ class Botao():
         playSurface.blit(render_font, (posicao_fonte_x, posicao_fonte_y))
         pygame.display.flip()
         return rect
+
