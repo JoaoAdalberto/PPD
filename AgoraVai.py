@@ -44,14 +44,15 @@ jogou = 0
 jogador_atual = jogador_verde
 botao_passar_turno = Botao("Passar a vez", (0, 0, 0), blue)
 botao_passar_turno.desenha_botao(playSurface, 150, 450, 200, 50)
-
+send_mensage_button = Botao("Enviar", (255, 1, 127), white)
+send_message_button_rect = send_mensage_button.desenha_botao(playSurface, 920, 490, 200, 50)
 botao_desistir = Botao("Desistir", (255, 51, 255), blue)
 botao_desistir.desenha_botao(playSurface, 150, 650, 200, 50)
 caixa_chat = CaixaChat(playSurface, 500, 80, 600, 350, white)
 texto_entrada = TextoEntrada(playSurface, 500, 460, 400, 110, white, "")
 
 retangulodobotao = pygame.draw.rect(playSurface, (0, 0, 0), (150, 450, 200, 50))
-
+input_para_caixa_do_chat = ""
 
 def enviar_mensagem(input):
     texto_entrada.clean_input()
@@ -84,6 +85,10 @@ while not done:
             done = True
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == MOUSE_LEFT:
+                if texto_entrada.get_input_text_rect().collidepoint(event.pos):
+                    texto_entrada.handle_event(event)
+                if send_message_button_rect.collidepoint(event.pos):
+                    enviar_mensagem(input)
                 position_mouse = pygame.mouse.get_pos()
 
                 if len(circulos) < 2:
@@ -132,4 +137,6 @@ while not done:
                     tabuleiro.desenha_estrela(playSurface)
 
         if event.type == pygame.KEYDOWN:
+            texto_entrada.handle_event(event)
+            input_para_caixa_do_chat = texto_entrada.draw(playSurface)
             pygame.display.flip()

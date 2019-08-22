@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7772e3e-490e-44ca-8820-102c721b00c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/caixadochat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/textodeentrada.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AgoraVai.py" beforeDir="false" afterPath="$PROJECT_DIR$/AgoraVai.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Botao.py" beforeDir="false" afterPath="$PROJECT_DIR$/Botao.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -156,9 +153,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.AgoraVai" />
+        <item itemvalue="Python.Botao" />
         <item itemvalue="Python.textodeentrada" />
         <item itemvalue="Python.caixadochat" />
-        <item itemvalue="Python.Botao" />
         <item itemvalue="Python.tabuleiro" />
       </list>
     </recent_temporary>
