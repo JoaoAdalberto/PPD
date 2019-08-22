@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7772e3e-490e-44ca-8820-102c721b00c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/caixadochat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/textodeentrada.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AgoraVai.py" beforeDir="false" afterPath="$PROJECT_DIR$/AgoraVai.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Botao.py" beforeDir="false" afterPath="$PROJECT_DIR$/Botao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatCliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChatCliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatServidor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServidor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChineseCheckers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabuleiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabuleiro.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +70,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Botao" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ChatCliente" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PPD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,7 +82,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Botao.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChatCliente.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="caixadochat" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ChatServidor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PPD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -102,7 +103,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/caixadochat.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ChatServidor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,10 +157,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.AgoraVai" />
-        <item itemvalue="Python.textodeentrada" />
-        <item itemvalue="Python.caixadochat" />
-        <item itemvalue="Python.Botao" />
         <item itemvalue="Python.tabuleiro" />
+        <item itemvalue="Python.ChatCliente" />
+        <item itemvalue="Python.ChatServidor" />
+        <item itemvalue="Python.textodeentrada" />
       </list>
     </recent_temporary>
   </component>
@@ -188,15 +189,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tabuleiro.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

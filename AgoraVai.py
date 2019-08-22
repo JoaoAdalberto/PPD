@@ -53,19 +53,40 @@ texto_entrada = TextoEntrada(playSurface, 500, 460, 400, 110, white, "")
 retangulodobotao = pygame.draw.rect(playSurface, (0, 0, 0), (150, 450, 200, 50))
 
 
+def message_display(x, y, text, size, cor):
+    ##    pygame.display.get_surface() é igual a screen
+    ##    largura, altura = pygame.display.get_surface().get_size()
+    largeText = pygame.font.Font('freesansbold.ttf', size)
+    TextSurf, TextRect = text_objects(text, largeText, cor)
+    TextRect.center = (x, y)
+    pygame.display.get_surface().blit(TextSurf, TextRect)
+
+
+# pygame.display.get_surface().blit(playSurface ,pygame.draw.circle(playSurface, green, (120, 40), 20))
+
+
+def text_objects(text, font, cor):
+    textSurface = font.render(text, True, cor)
+    return textSurface, textSurface.get_rect()
+
+
+message_display(80, 40, "Jogador atual: ", 20, (0, 0, 0, 255))
+
+
 def enviar_mensagem(input):
     texto_entrada.clean_input()
     pygame.display.flip()
     caixa_chat.adiciona_texto(0, input)
     caixa_chat.atualiza_tela_chatarray()
 
+
 def mostra_jogador_atual(jogador_atual):
     while True:
         if jogador_atual == jogador_verde:
-            pygame.draw.circle(playSurface, green, (100, 100), 20)
+            pygame.draw.circle(playSurface, green, (120, 40), 20)
             break
         elif jogador_atual == jogador_vermelho:
-            pygame.draw.circle(playSurface, red, (100, 100), 20)
+            pygame.draw.circle(playSurface, red, (120, 40), 20)
             break
 
 
@@ -119,7 +140,7 @@ while not done:
                         pygame.draw.circle(playSurface, red, (100, 100), 20)
                         print(jogador_atual)
                 tabuleiro.desenha_estrela(playSurface)
-                tabuleiro.checa_se_tem_ganhador()
+                tabuleiro.checa_se_tem_ganhador(playSurface)
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == MOUSE_RIGHT:

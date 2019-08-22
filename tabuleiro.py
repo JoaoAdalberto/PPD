@@ -80,13 +80,20 @@ class Tabuleiro():
             circulo.cria_bola(screen)
         pygame.display.flip()
 
-    def checa_se_tem_ganhador(self):
+    def checa_se_tem_ganhador(self, playSurface):
+
+
+
         if self.bolas[0].get_cor() == (255, 0, 0) and self.bolas[1].get_cor() == (255, 0, 0) and self.bolas[2].get_cor() == (255, 0, 0) and self.bolas[3].get_cor() == (255, 0, 0) and self.bolas[4].get_cor() == (255, 0, 0) and self.bolas[5].get_cor() == (255, 0, 0) and self.bolas[6].get_cor() == (255, 0, 0) and self.bolas[7].get_cor() == (255, 0, 0) and self.bolas[8].get_cor() == (255, 0, 0) and self.bolas[9].get_cor() == (255, 0, 0):
+            pygame.draw.circle(playSurface, red, (273, 179), 80)
             print("O VERMELHO GANHOUUUUUUUUUUUU UHULLLL")
 
         elif self.bolas[120].get_cor() == (0, 255, 0) and self.bolas[119].get_cor() == (0, 255, 0) and self.bolas[118].get_cor() == (0, 255, 0) and self.bolas[117].get_cor() == (0, 255, 0) and self.bolas[116].get_cor() == (0, 255, 0) and self.bolas[115].get_cor() == (0, 255, 0) and self.bolas[114].get_cor() == (0, 255, 0) and self.bolas[113].get_cor() == (0, 255, 0) and self.bolas[112].get_cor() == (0, 255, 0) and self.bolas[111].get_cor() == (0, 255, 0):
-
+            pygame.draw.circle(playSurface, green, (273, 179), 80)
             print("O VERDE GANHOUUUUUUUUUUUU UHULLLL")
+
+
+
 
     def verifica_dentro_do_circulo(self, x, y, a, b, r):
         return (x - a) * (x - a) + (y - b) * (y - b) < r * r
