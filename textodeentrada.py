@@ -27,8 +27,8 @@ class TextoEntrada:
     def get_input_text_rect(self):
         return self.rect
 
-    def get_use_input(self,jogador_atual,texto):
-        self.user_input((jogador_atual,texto))
+    def get_user_input(self,jogador_atual,texto):
+        self.entrada_usuario(jogador_atual,texto)
 
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:

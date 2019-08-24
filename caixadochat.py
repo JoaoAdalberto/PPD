@@ -6,7 +6,7 @@ green = (0, 255, 0)
 blue = (0, 0, 255)
 grey = (128, 128, 128)
 
-
+#Inicializa a caixa do chat
 class CaixaChat:
     def __init__(self, playSurface, x, y, largura, altura, cor):
         self.playSurface = playSurface
@@ -16,12 +16,12 @@ class CaixaChat:
         self.font = pygame.font.SysFont("Corbel", 20)
         self.chatarray = []
         self.texts = []
-
-    def adiciona_texto(self, jogador_atual, texto):
+#adiciona o texto a janela de chat e verifica se tem 11, q e o tanto de mensagem q cabe na janela se tiver, deleta a primeira enviada
+    def adiciona_texto(self, texto):
         if len(self.chatarray) == 11:
             self.chatarray.pop(0)
 
-        self.chatarray.append((jogador_atual, texto))
+        self.chatarray.append(texto)
 
     def pega_todos_textos(self):
         return self.chatarray
@@ -29,9 +29,10 @@ class CaixaChat:
     def reseta_interface(self):
         self.playSurface.fill(white)
 
-    def atualiza_tela_chatarray(self):
+#manda as mensagems pra tela do chat nao to entendendo pq ta mudando a cor de todas as mensagems pra cor do ultimo que enviou a mensagem
+    def atualiza_tela_chatarray(self, jogador_atual):
         for index, value in enumerate(self.chatarray):
-            jogador_atual, texto = value
+            texto = value
             if jogador_atual == "verde":
                 texto = (f"Jogador verde: {texto}")
                 render_font = self.font.render(texto, True, green)
