@@ -15,7 +15,7 @@ def receive(client_socket):
 
             msg = client_socket.recv(BUFSIZ).decode("utf8")
             msg_list.insert(msg)
-        except OSError:  # Possibly client has left the chat.
+        except OSError:  # Possibly client has left the chat
             break
     return username, msg
 

@@ -29,7 +29,7 @@ def handle_client(client):  # Takes client socket as argument.
         broadcast(msg, name + ": ")
 
 
-def broadcast(msg, prefix=""):  # prefix is for name identification.
+def broadcast(msg, prefix=""):  # prefix is for name identification
     """Broadcasts a message to all the clients."""
 
     for sock in clients:

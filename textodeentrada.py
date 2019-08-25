@@ -12,11 +12,11 @@ FONT2 = pygame.font.SysFont("Corbel", 15)
 
 class TextoEntrada:
 
-    def __init__(self,playSurface, x, y, largura, altura, cor, texto):
+    def __init__(self, playSurface, x, y, largura, altura, cor, texto):
         self.playSurface = playSurface
         self.entrada_usuario = []
         self.ativo = False
-        self.rect = pygame.draw.rect(playSurface, white, (x,y, largura,altura))
+        self.rect = pygame.draw.rect(playSurface, white, (x, y, largura, altura))
         self.texto = texto
         self.surface_texto = FONT.render(texto, True, (0, 0, 0))
         self.quantity_of_number = FONT2.render('0/60', True, (0, 0, 0))
@@ -27,9 +27,10 @@ class TextoEntrada:
     def get_input_text_rect(self):
         return self.rect
 
-    def get_user_input(self,jogador_atual,texto):
-        self.entrada_usuario(jogador_atual,texto)
+    def get_user_input(self, jogador_atual, texto):
+        self.entrada_usuario(jogador_atual, texto)
 
+    # Se a pessoa clicar no quadrado pra digitar a mensagem fica azul, se apertar enter apaga o texto, etc.
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.rect.collidepoint(event.pos):
@@ -47,11 +48,11 @@ class TextoEntrada:
                 else:
                     if len(self.texto) < 60:
                         self.texto += event.unicode
-                self.surface_texto = FONT.render(self.texto, True, (0,0,0))
+                self.surface_texto = FONT.render(self.texto, True, (0, 0, 0))
                 self.quantity_of_number = FONT2.render(f"{len(self.texto)}/60", True, (0, 0, 0))
 
     def draw(self, playSurface):
-        pygame.draw.rect(playSurface,self.cor,self.rect)
+        pygame.draw.rect(playSurface, self.cor, self.rect)
         pygame.draw.rect(playSurface, self.cor, (500, 460, 400, 30))
         self.playSurface.blit(self.surface_texto, (500, 460))
         if len(self.texto) < 60:

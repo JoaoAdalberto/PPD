@@ -144,7 +144,7 @@ while not done:
                 if len(circulos) == 2:
                     tabuleiro.muda_posicao_circulo(circulos[0], circulos[1])
                     circulos = []
-                #se clicar pra passar o turno troca os jogadores e muda a bola que diz de quem e o turno
+                #Se clicar pra passar o turno troca os jogadores e muda a bola que diz de quem é o turno
                 if retangulodobotao.collidepoint(position_mouse):
                     if jogador_atual == jogador_vermelho:
                         jogador_atual = jogador_verde

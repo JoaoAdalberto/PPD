@@ -16,7 +16,7 @@ class CaixaChat:
         self.font = pygame.font.SysFont("Corbel", 20)
         self.chatarray = []
         self.texts = []
-#adiciona o texto a janela de chat e verifica se tem 11, q e o tanto de mensagem q cabe na janela se tiver, deleta a primeira enviada
+#adiciona o texto para a janela de chat e verifica se tem 11, q e o tanto de mensagem q cabe na janela se tiver, deleta a primeira enviada
     def adiciona_texto(self, texto):
         if len(self.chatarray) == 11:
             self.chatarray.pop(0)
