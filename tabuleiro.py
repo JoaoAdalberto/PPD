@@ -75,24 +75,33 @@ class Tabuleiro():
                                Bola(red, 306, 312), Bola(red, 328, 312), Bola(red, 350, 312),
                                Bola(red, 295, 293), Bola(red, 317, 293), Bola(red, 339, 293), Bola(red, 361, 293)])
 
+
+
+
     def desenha_estrela(self, screen):
         for circulo in self.bolas:
             circulo.cria_bola(screen)
         pygame.display.flip()
 
     def checa_se_tem_ganhador(self, playSurface):
-
-
-
+        overmelhovenceu = pygame.image.load("Vitoriadovermelho.jpg")
+        overdevenceu = pygame.image.load("Vitoriadoverde.jpg")
+        #vencedor = ""
         if self.bolas[0].get_cor() == (255, 0, 0) and self.bolas[1].get_cor() == (255, 0, 0) and self.bolas[2].get_cor() == (255, 0, 0) and self.bolas[3].get_cor() == (255, 0, 0) and self.bolas[4].get_cor() == (255, 0, 0) and self.bolas[5].get_cor() == (255, 0, 0) and self.bolas[6].get_cor() == (255, 0, 0) and self.bolas[7].get_cor() == (255, 0, 0) and self.bolas[8].get_cor() == (255, 0, 0) and self.bolas[9].get_cor() == (255, 0, 0):
             pygame.draw.circle(playSurface, red, (273, 179), 80)
             print("O VERMELHO GANHOUUUUUUUUUUUU UHULLLL")
-
+            playSurface = pygame.display.set_mode((1200,800))
+            playSurface.fill(grey)
+            pygame.display.flip()
+            playSurface.blit(overmelhovenceu, (0, 0))
+            # vencedor = "vermelho"
         elif self.bolas[120].get_cor() == (0, 255, 0) and self.bolas[119].get_cor() == (0, 255, 0) and self.bolas[118].get_cor() == (0, 255, 0) and self.bolas[117].get_cor() == (0, 255, 0) and self.bolas[116].get_cor() == (0, 255, 0) and self.bolas[115].get_cor() == (0, 255, 0) and self.bolas[114].get_cor() == (0, 255, 0) and self.bolas[113].get_cor() == (0, 255, 0) and self.bolas[112].get_cor() == (0, 255, 0) and self.bolas[111].get_cor() == (0, 255, 0):
             pygame.draw.circle(playSurface, green, (273, 179), 80)
             print("O VERDE GANHOUUUUUUUUUUUU UHULLLL")
-
-
+            playSurface = pygame.display.set_mode((1200, 800))
+            playSurface.fill(grey)
+            pygame.display.flip()
+            playSurface.blit(overdevenceu, (0, 0))
 
 
     def verifica_dentro_do_circulo(self, x, y, a, b, r):

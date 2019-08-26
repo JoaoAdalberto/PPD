@@ -44,7 +44,7 @@ def receive(client_socket):
 
 
 # Parte do socket
-HOST = "127.0.0.1"
+HOST = input("Qual seu ip?")
 PORT = 33000
 ADDR = (HOST, PORT)
 
@@ -138,7 +138,7 @@ pygame.display.flip()
 def enviar_mensagem(input, jogador_atual):
     texto_entrada.clean_input()
     pygame.display.flip()
-    caixa_chat.adiciona_texto(input)
+    caixa_chat.adiciona_texto(jogador_atual, input)
     caixa_chat.atualiza_tela_chatarray(jogador_atual)
 
 
@@ -196,6 +196,8 @@ while not done:
                 if len(circulos) == 2:
                     tabuleiro.muda_posicao_circulo(circulos[0], circulos[1])
                     circulos = []
+                tabuleiro.checa_se_tem_ganhador(playSurface)
+
                 # Se clicar pra passar o turno troca os jogadores e muda a bola que diz de quem é o turno
                 if retangulodobotao.collidepoint(position_mouse):
                     if jogador_atual == jogador_vermelho:
@@ -205,7 +207,6 @@ while not done:
                         jogador_atual = jogador_vermelho
                         pygame.draw.circle(playSurface, red, (210, 40), 20)
                 tabuleiro.desenha_estrela(playSurface)
-                tabuleiro.checa_se_tem_ganhador(playSurface)
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == MOUSE_RIGHT:

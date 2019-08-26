@@ -2,7 +2,7 @@
 """Server for multithreaded (asynchronous) chat application."""
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
-
+import sys
 
 def accept_incoming_connections():
     """Sets up handling for incoming clients."""
@@ -41,7 +41,7 @@ def broadcast(msg):  # prefix is for name identification
 clients = {}
 addresses = {}
 
-HOST = "127.0.0.1"
+HOST = str(sys.argv[1])
 PORT = 33000
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
@@ -51,7 +51,7 @@ SERVER.bind(ADDR)
 
 if __name__ == "__main__":
     SERVER.listen(2)
-    print("Waiting for connection...")
+    print("Esperando conexões...")
     ACCEPT_THREAD = Thread(target=accept_incoming_connections)
     ACCEPT_THREAD.start()
     ACCEPT_THREAD.join()
