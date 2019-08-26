@@ -8,8 +8,8 @@ def accept_incoming_connections():
     """Sets up handling for incoming clients."""
     while True:
         client, client_address = SERVER.accept()
-        print("%s has connected." % client_address)
-        client.send(bytes("Bem vindo ao jogo, introduza seu nome!", "utf8"))
+        print(str(client_address) + " has connected.")
+        # client.send(bytes("Bem vindo ao jogo, introduza seu nome!", "utf8"))
         addresses[client] = client_address
         Thread(target=handle_client, args=(client,)).start()
 
@@ -19,21 +19,23 @@ def handle_client(client):  # Takes client socket as argument.
 
     name = client.recv(BUFSIZ).decode("utf8")
     welcome = 'Welcome %s!' % name
+    print(welcome)
     client.send(bytes(welcome, "utf8"))
     msg = "%s has joined the chat!" % name
-    broadcast(bytes(msg, "utf8"))
     clients[client] = name
+    broadcast(msg)
 
     while True:
         msg = client.recv(BUFSIZ)
-        broadcast(msg, name + ": ")
+        broadcast(msg)
 
 
-def broadcast(msg, prefix=""):  # prefix is for name identification
+def broadcast(msg):  # prefix is for name identification
     """Broadcasts a message to all the clients."""
 
     for sock in clients:
-        sock.send(bytes(prefix, "utf8") + msg)
+        string = clients[sock] + " " + msg
+        sock.send(string.encode("utf-8"))
 
 
 clients = {}
