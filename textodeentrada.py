@@ -41,11 +41,11 @@ class TextoEntrada:
             self.draw(self.playSurface)
         if event.type == pygame.KEYDOWN:
             if self.ativo:
-                if event.key == pygame.K_RETURN:
-                    self.texto = " "
-                elif event.key == pygame.K_BACKSPACE:
+                # if event.key == pygame.K_RETURN:
+                #     self.texto = " "
+                if event.key == pygame.K_BACKSPACE:
                     self.texto = self.texto[:-1]
-                else:
+                elif event.key != pygame.K_RETURN:
                     if len(self.texto) < 60:
                         self.texto += event.unicode
                 self.surface_texto = FONT.render(self.texto, True, (0, 0, 0))
@@ -69,5 +69,5 @@ class TextoEntrada:
         self.quantity_of_number = FONT2.render(f"{len(self.texto)}/60", True, (0, 0, 0))
         self.cor = blue
         self.draw(self.playSurface)
-        print(self.texto)
+        #print(self.texto)
         pygame.display.flip()

@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7772e3e-490e-44ca-8820-102c721b00c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AgoraVai.py" beforeDir="false" afterPath="$PROJECT_DIR$/AgoraVai.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatCliente.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatServidor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServidor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/caixadochat.py" beforeDir="false" afterPath="$PROJECT_DIR$/caixadochat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memorypuzzle.py" beforeDir="false" afterPath="$PROJECT_DIR$/memorypuzzle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tabuleiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabuleiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/textodeentrada.py" beforeDir="false" afterPath="$PROJECT_DIR$/textodeentrada.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +33,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -47,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AgoraVai">
+  <component name="RunManager" selected="Python.ChatServidor">
     <configuration name="AgoraVai" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PPD" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,9 +160,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ChatServidor" />
         <item itemvalue="Python.AgoraVai" />
         <item itemvalue="Python.tabuleiro" />
-        <item itemvalue="Python.ChatServidor" />
         <item itemvalue="Python.caixadochat" />
         <item itemvalue="Python.ChatCliente" />
       </list>
