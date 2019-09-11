@@ -5,7 +5,17 @@ from Botao import Botao
 from caixadochat import CaixaChat
 from textodeentrada import TextoEntrada
 from tkinter import *
+import Pyro4
 
+server=None
+
+def look_for_server():
+    ns=Pyro4.locateNS()
+    uri=ns.lookup('servidor')
+    server=Pyro4.Proxy(uri)
+    return server
+
+cliente=None
 
 # Parte do socket do cliente
 
